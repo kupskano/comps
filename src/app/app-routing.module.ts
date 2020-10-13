@@ -11,6 +11,18 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'standing',
+    loadChildren: () => import('./standing/standing.module').then( m => m.StandingPageModule)
+  },
+  {
+    path: 'standingpopup',
+    loadChildren: () => import('./standingpopup/standingpopup.module').then( m => m.StandingpopupPageModule)
+  },
+  {
+    path: 'livescore',
+    loadChildren: () => import('./livescore/livescore.module').then( m => m.LivescorePageModule)
+  },
 ];
 
 @NgModule({

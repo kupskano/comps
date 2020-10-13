@@ -1,0 +1,101 @@
+<ion-header  class="ion-no-border potaeto">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title">TEAM STANDINGS</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-toolbar class="toolbarstanding">
+  <ion-grid >
+    <ion-row style="text-align: center;">
+      <ion-col>
+        Rank
+      </ion-col>
+      <ion-col>
+        Badge
+      </ion-col>
+      
+      <ion-col>
+        Wins
+      </ion-col>
+      <ion-col>
+        Lose
+      </ion-col>
+      <ion-col>
+        Team
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-toolbar>
+
+<ion-content>
+  <div>
+    <ion-card>
+      <ion-card-content>
+        <div class="ion-text-center">
+          <ion-label >
+            SWIPE RIGHT TO VIEW DETAILS
+          </ion-label>
+        </div>
+        
+        <ion-list *ngFor="let standing of standings" icon="chevron-back">
+          <ion-item-sliding>
+            <ion-item style="margin: auto;" >
+              <ion-label>{{standing.overall_league_position}}</ion-label>
+              <img class="imagebadge" src="{{standing.team_badge}}">
+              <ion-label style="padding-left: 3rem;">{{standing.overall_league_W}}</ion-label>
+              <ion-label style="padding-left: 2rem;">{{standing.overall_league_L}}</ion-label>
+              <ion-label>{{standing.team_name}}</ion-label>
+            </ion-item>
+            <ion-item-options side="end">
+              <ion-item-option color="primary" (click)="standingDetails(standing)">
+                  <ion-label>View Details</ion-label>
+              </ion-item-option>
+          </ion-item-options>
+          </ion-item-sliding>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </div>
+
+  <ion-item>
+    
+  </ion-item>
+
+
+  <div *ngIf="!standings">
+    <div class="ion-padding custom-skeleton">
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    </div>
+  
+    <ion-list>
+      <ion-list-header>
+        <ion-label>
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+        </ion-label>
+      </ion-list-header>
+      <ion-item>
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

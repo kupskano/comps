@@ -1,20 +1,104 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<!-- <ion-header  class="ion-no-border potaeto">
+  <ion-toolbar >
+
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="start" name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header> -->
+<ion-header  class="ion-no-border potaeto">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-menu-button menu="main-menu"></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="title">NEWS COMPS FOOTBALL</ion-title>
+    <ion-img src="assets/resources/compsicon.png" alt="icon" slot="end" style="width: 50px; height: 50px; padding-right: 1rem;"></ion-img>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+
+<ion-content >
+  <ion-card>
+
+  </ion-card>
+  <ion-slides  [options]="options" style="padding-bottom: 30px "  pager>
+
+    <ion-slide  *ngFor="let team of teams">
+      <ion-card class="card" >
+        <ion-card-content class="ion-text-left">
+
+          <div class="img-wrapper">
+            
+            <ion-img src="{{team.team_badge}}"></ion-img>
+          </div>
+          <div class="ion-text-center">
+            <ion-card-title class="title">{{team.team_name}}</ion-card-title>
+            <!-- <ion-button fill="outline" href="{{team.url}}" large>READ FULL ARTICLE</ion-button> -->
+          </div>
+          <!-- <ion-card-subtitle>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+            <ion-icon name="star"></ion-icon>
+          </ion-card-subtitle> -->
+         
+        </ion-card-content>
+        
+      </ion-card>
+    </ion-slide>
+    <!-- <ion-slide *ngFor="let team of teams">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="12" class="poster-col">
+            <img class="poster" src="{{team.team_badge}}" alt="">
+          </ion-col>
+          <ion-col size="12">
+            <h5 class="ion-no-margin">{{team.team_name}}</h5>
+           
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+    
+
+    </ion-slide> -->
+  </ion-slides>
+  
+
+  <div *ngIf="!teams">
+    <div class="ion-padding custom-skeleton">
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+      <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+    </div>
+  
+    <ion-list>
+      <ion-list-header>
+        <ion-label>
+          <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+        </ion-label>
+      </ion-list-header>
+    </ion-list>
+
+    <!-- Dots -->
+    <br>
+    <div class="ion-text-center">
+      <ion-label>Loading please wait.....</ion-label><br>
+      <ion-spinner name="dots"></ion-spinner>
+    </div>
   </div>
+  
+  
+
 </ion-content>

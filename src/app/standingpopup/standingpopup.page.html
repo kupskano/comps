@@ -1,0 +1,33 @@
+<ion-header  class="ion-no-border potaeto">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button icon="chevron-back" defaultHref="/standing"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="title">{{team_name}} DETAILS</ion-title>
+    <ion-img src="assets/resources/compsicon.png" alt="icon" slot="end" style="width: 50px; height: 50px; padding-right: 1rem;"></ion-img>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card >
+    <ion-card-content>
+      <div class="ion-text-center">
+          
+      </div>
+      <ion-img [src]="team_badge"></ion-img>
+      
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-content>
+          <h2>Team Name: <b>{{team_name}}</b> </h2>
+          <h2>Overall Promotion: <b>{{overall_promotion}}</b></h2>
+          <h2>League Name: <b> {{league_name}}</b> </h2>
+          <h2>Overall Wins: <b>{{overall_league_W}}</b></h2>
+          <h2>Overall Lose: <b>{{overall_league_L}}</b></h2>
+          <h2>Overall League Points: <b>{{overall_league_PTS}}</b></h2>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
